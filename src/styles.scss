@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  Reset all default css styles
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+img, video, iframe, picture, figure {
+  max-width: 100%;
+  display: block;
+}
+
+form, input, select, textarea, button, label, a {
+  display: block;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+

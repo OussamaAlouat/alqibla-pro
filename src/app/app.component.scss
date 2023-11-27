@@ -1,0 +1,14 @@
+main {
+  height: inherit;
+}
+
+h1 {
+  font-size: calc((6.4 - 1) * 1.2vw + 1rem);
+}
+.title_section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
