@@ -37,5 +37,23 @@ h1 {
 }
 
 .menu_option {
-  cursor: pointer;
+  cursor: pointer; 
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size .7s;
+}
+
+.menu_option:hover {
+  background-size: 100% 1px;
+}
+
+.menu_option_selected {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
 }
