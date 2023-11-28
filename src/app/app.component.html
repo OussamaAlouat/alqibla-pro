@@ -2,14 +2,11 @@
 <header>
   <nav class="web_menu">
     <ul class="menu_sections">
-      <li class="menu_option">
-        Home
-      </li>
-      <li class="menu_option">
-        Sobre nosotros
-      </li>
-      <li class="menu_option">
-        Contacto
+      <li *ngFor="let op of NAV_OPTIONS"  
+        (click)="selectOption(op.id)"
+        [ngClass]="selected === op.id ? 'menu_option_selected' : 'menu_option'"
+      >
+        {{ op.name }}
       </li>
     </ul>
   </nav>

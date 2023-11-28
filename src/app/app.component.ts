@@ -11,4 +11,25 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'alqibla-pro';
+
+  NAV_OPTIONS = [
+    {
+      name: 'Home',
+      id: 1
+    },
+    {
+      name: 'About',
+      id: 2
+    },
+    {
+      name: 'Contact',
+      id: 3
+    }
+  ];
+
+  selected:number = 1;
+
+  selectOption(id: number) {
+    this.selected = id;
+  }
 }
