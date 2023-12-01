@@ -5,7 +5,7 @@ export const isInViewport = (elm: any): boolean => {
   // in this specific case the scroller is document.documentElement (<html></html> node)
   if (typeof window !== 'undefined') {
     const viewportTop = document.documentElement.scrollTop;
-    const viewportBottom = viewportTop + document.documentElement.clientHeight;    
+    const viewportBottom = viewportTop + document.documentElement.clientHeight - 120;
     return elementBottom > viewportTop && elementTop < viewportBottom;
   }
 
