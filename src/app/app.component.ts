@@ -12,9 +12,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChildren('home, about') elms!: QueryList<any>;
-  detectedElms = [];
   public NAV_OPTIONS = NAV_OPTIONS;
+  @ViewChildren('project, mission,vision, valores, asociacinismo, facciones, futuwa, actividades, local, economy') elms!: QueryList<any>;  
   public selected: number = -1;
   title = 'alqibla-pro';
 
@@ -38,14 +37,19 @@ export class AppComponent {
     this.viewportScroller.scrollToAnchor(this.NAV_OPTIONS[id].anchor)
   }
 
+  scrollTop() {
+    this.selected = -1;
+    this.viewportScroller.scrollToAnchor('logo');
+  }
+
   detectElms() {
-    const detectedElms: any = []
     this.elms.forEach((elm, index) => {
       if (isInViewport(elm.nativeElement)) {
-        detectedElms.push(elm.nativeElement.id)
+        const finded = this.NAV_OPTIONS.find((el) => el.anchor  === elm.nativeElement.id);
+        if(finded) {
+          this.selected = finded.id;
+        }
       }
     });
-
-    this.detectedElms = detectedElms
   }
 }
