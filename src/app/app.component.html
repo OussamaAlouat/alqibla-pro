@@ -1,7 +1,7 @@
 <!--Menu web section-->
 <header>
   <nav class="web_menu">
-    <div class="logo_container">
+    <div class="logo_container" (click)="scrollTop()">
       <img src="/assets/img/alqibla.png" width="64px" alt="Logo"/>
     </div>
     <ul class="menu_sections">
@@ -15,23 +15,17 @@
     </ul>
   </nav>
 </header>
+
 <main>
   <div>
     <!--Title seccion section with title-->
-    <section class="title_section">
-    <!--
-
-      <div class="image_container">
-        <img src="/assets/img/alqibla.png" alt="Logo" />
-      </div>
-    -->
-    </section>
+    <section class="title_section" id="logo" #logo></section>
 
     <section class="home_section" id="project" #project>
-        <h2>¿QUÉ ES EL PROYECTO ALQIBLA?</h2>
-        <p>
-          {{ exampletext }}
-        </p>
+      <h2>¿QUÉ ES EL PROYECTO ALQIBLA?</h2>
+      <p>
+        {{ exampletext }}
+      </p>
     </section>
 
     <section class="home_section" id="mission" #mission>
@@ -39,6 +33,62 @@
       <p>
         {{ exampletext }}
       </p>
-  </section>
+    </section>
+
+    <section class="home_section" id="vision" #vision>
+      <h2>VISIÓN</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="valores" #valores>
+      <h2>Valores</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="asociacinismo" #asociacinismo>
+      <h2>Asociacinismo</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="facciones" #facciones>
+      <h2>Facciones</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="futuwa" #futuwa>
+      <h2>Futuwa</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="actividades" #actividades>
+      <h2>Actividades</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="local" #local>
+      <h2>UN NUEVO MODELO DE LOCAL - LAS FUTURAS INSTALACIONES</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="economy" #economy>
+      <h2>Colaboración económica</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
   </div>
 </main>
