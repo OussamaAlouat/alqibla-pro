@@ -1,6 +1,6 @@
-import { isInViewport } from './../utils/view.utils';
+import { isInViewport,isMobile } from './../utils/view.utils';
 import { NAV_OPTIONS } from './constants/constants';
-import { Component, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Component, QueryList, Renderer2, ViewChildren, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public NAV_OPTIONS = NAV_OPTIONS;
   @ViewChildren('project, mission,vision, valores, asociacinismo, facciones, futuwa, actividades, local, economy') elms!: QueryList<any>;  
   public selected: number = -1;
@@ -27,6 +27,16 @@ export class AppComponent {
     this.renderer.listen('window', 'resize', this.detectElms.bind(this));
     this.renderer.listen('window', 'scroll', this.detectElms.bind(this));
   }
+  public mobile: any;
+  public showMenu: boolean = false;
+ngOnInit(): void {
+  this.mobile = isMobile();
+  if(this.mobile) {
+    this.showMenu = false;
+  } else {
+    this.showMenu = true;
+  }
+}
 
   ngAfterViewInit () {
     setTimeout(this.detectElms.bind(this))
@@ -34,12 +44,17 @@ export class AppComponent {
 
   selectOption(id: number) {
     this.selected = id;
-    this.viewportScroller.scrollToAnchor(this.NAV_OPTIONS[id].anchor)
+    const anchor = id === -1 ? 'logo' : this.NAV_OPTIONS[id].anchor
+
+    this.viewportScroller.scrollToAnchor(anchor);
+
+    if(this.mobile) {
+      this.showMenu = false;
+    }
   }
 
-  scrollTop() {
-    this.selected = -1;
-    this.viewportScroller.scrollToAnchor('logo');
+  openMenu() {
+    this.showMenu = true;
   }
 
   detectElms() {
