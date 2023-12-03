@@ -1,11 +1,105 @@
+<!--Menu web section-->
+<header>
+  @if (showMenu) {
+    <nav class="web_menu">
+      <div class="logo_container" (click)="selectOption(-1)">
+        <img src="/assets/img/alqibla.png" width="64px" alt="Logo"/>
+      </div>
+      <ul class="menu_sections">
+        @for (op of NAV_OPTIONS; track op.id) {
+          <li
+            (click)="selectOption(op.id)"
+            [ngClass]="selected === op.id ? 'menu_option_selected' : 'menu_option'"
+          >
+            {{ op.name }}</li>
+        }
+      </ul>
+    </nav>
+  }
+
+  @if (mobile && !showMenu) {
+    <nav class="mobile__menu_icon">
+      <div>
+        <i class="bi bi-justify" (click)="openMenu()"></i>
+      </div>
+    </nav>
+  }
+
+</header>
+
 <main>
   <div>
-    <!--Home section with title-->
-    <section class="title_section">
-      <h1>
-        Proyecto Alqibla
-      </h1>
+    <!--Title seccion section with title-->
+    <section class="title_section" id="logo" #logo></section>
+
+    <section class="home_section" id="project" #project>
+      <h2>¿QUÉ ES EL PROYECTO ALQIBLA?</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="mission" #mission>
+      <h2>MISIÓN</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="vision" #vision>
+      <h2>VISIÓN</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="valores" #valores>
+      <h2>Valores</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="asociacinismo" #asociacinismo>
+      <h2>Asociacinismo</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="facciones" #facciones>
+      <h2>Facciones</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="futuwa" #futuwa>
+      <h2>Futuwa</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="actividades" #actividades>
+      <h2>Actividades</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="local" #local>
+      <h2>UN NUEVO MODELO DE LOCAL - LAS FUTURAS INSTALACIONES</h2>
+      <p>
+        {{ exampletext }}
+      </p>
+    </section>
+
+    <section class="home_section" id="economy" #economy>
+      <h2>Colaboración económica</h2>
+      <p>
+        {{ exampletext }}
+      </p>
     </section>
   </div>
 </main>
-

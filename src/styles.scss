@@ -2,8 +2,12 @@
   Variables
 */
 :root {
-  --main--font-family: 'orpheus-pro';
-  --main--letter-spacing: 0em;
+  --main-font-family: 'orpheus-pro';
+  --main-letter-spacing: 0em;
+  --main-white-gray: #efefef;
+  --main-white-gray-2: #cfcfcf;
+  --main-padding-size: 1rem;
+  --main-small-font-size: 0.75em;
 }
 /*
   Reset all default css styles
@@ -58,4 +62,3 @@ form, input, select, textarea, button, label, a {
   font-family: inherit;
   color: inherit;
 }
-
