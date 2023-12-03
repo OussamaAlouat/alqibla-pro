@@ -1,19 +1,30 @@
 <!--Menu web section-->
 <header>
-  <nav class="web_menu">
-    <div class="logo_container" (click)="scrollTop()">
-      <img src="/assets/img/alqibla.png" width="64px" alt="Logo"/>
-    </div>
-    <ul class="menu_sections">
-      @for (op of NAV_OPTIONS; track op.id) {
-        <li
-          (click)="selectOption(op.id)"
-          [ngClass]="selected === op.id ? 'menu_option_selected' : 'menu_option'"
-        >
-          {{ op.name }}</li>
-      }
-    </ul>
-  </nav>
+  @if (showMenu) {
+    <nav class="web_menu">
+      <div class="logo_container" (click)="selectOption(-1)">
+        <img src="/assets/img/alqibla.png" width="64px" alt="Logo"/>
+      </div>
+      <ul class="menu_sections">
+        @for (op of NAV_OPTIONS; track op.id) {
+          <li
+            (click)="selectOption(op.id)"
+            [ngClass]="selected === op.id ? 'menu_option_selected' : 'menu_option'"
+          >
+            {{ op.name }}</li>
+        }
+      </ul>
+    </nav>
+  }
+
+  @if (mobile && !showMenu) {
+    <nav class="mobile__menu_icon">
+      <div>
+        <i class="bi bi-justify" (click)="openMenu()"></i>
+      </div>
+    </nav>
+  }
+
 </header>
 
 <main>
