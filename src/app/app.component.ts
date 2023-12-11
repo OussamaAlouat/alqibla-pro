@@ -1,4 +1,6 @@
 import { NavComponent } from './components/nav/nav.component';
+import { AboutComponent } from './views/about/about.component';
+
 import { isInViewport } from './../utils/view.utils';
 import { NAV_OPTIONS } from './constants/constants';
 import { Component, QueryList, Renderer2, ViewChildren, OnInit } from '@angular/core';
@@ -9,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent],
+  imports: [CommonModule, RouterOutlet, NavComponent, AboutComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
