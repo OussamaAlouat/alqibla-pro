@@ -7,7 +7,7 @@
       @for (op of NAV_OPTIONS; track op.id) {
         <li
           (click)="selectOption(op.id)"
-          [ngClass]="selectedSection === op.id ? 'menu-container__option-slected' : 'menu-container__option'"
+          [ngClass]="currentPosition === op.id ? 'menu-container__option-slected' : 'menu-container__option'"
         >
           {{ op.name }}
         </li>

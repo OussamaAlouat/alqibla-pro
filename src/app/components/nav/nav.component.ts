@@ -13,18 +13,15 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class NavComponent implements OnInit{
   public showMenu: boolean = false;
-  public selectedSection:number = -1;
   public NAV_OPTIONS = NAV_OPTIONS;
   public mobile: any;
 
   @Output() scrollToSection = new EventEmitter<String>();
-  @Input() currentPosition = new Subject<number>();
+  @Input() currentPosition:number = -1;
 
   constructor() {
   }
   ngOnInit(): void {
-    this.currentPosition.subscribe((val) => this.selectedSection = val);
-
     this.mobile = isMobile();
     if(this.mobile) {
       this.showMenu = false;
@@ -38,7 +35,7 @@ export class NavComponent implements OnInit{
   }
 
   selectOption(id: number) {
-    this.selectedSection = id;
+    this.currentPosition = id;
     const anchor = id === -1 ? 'logo' : this.NAV_OPTIONS[id].anchor
 
     
