@@ -1,17 +1,19 @@
-import { isInViewport,isMobile } from './../utils/view.utils';
+import { NavComponent } from './components/nav/nav.component';
+import { isInViewport } from './../utils/view.utils';
 import { NAV_OPTIONS } from './constants/constants';
 import { Component, QueryList, Renderer2, ViewChildren, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public NAV_OPTIONS = NAV_OPTIONS;
   @ViewChildren('project, mission,vision, valores, asociacinismo, facciones, futuwa, actividades, local, economy') elms!: QueryList<any>;  
   public selected: number = -1;
@@ -27,34 +29,13 @@ export class AppComponent implements OnInit {
     this.renderer.listen('window', 'resize', this.detectElms.bind(this));
     this.renderer.listen('window', 'scroll', this.detectElms.bind(this));
   }
-  public mobile: any;
-  public showMenu: boolean = false;
-ngOnInit(): void {
-  this.mobile = isMobile();
-  if(this.mobile) {
-    this.showMenu = false;
-  } else {
-    this.showMenu = true;
-  }
-}
 
   ngAfterViewInit () {
     setTimeout(this.detectElms.bind(this))
   }
 
-  selectOption(id: number) {
-    this.selected = id;
-    const anchor = id === -1 ? 'logo' : this.NAV_OPTIONS[id].anchor
-
+  selectOption(anchor: any) {
     this.viewportScroller.scrollToAnchor(anchor);
-
-    if(this.mobile) {
-      this.showMenu = false;
-    }
-  }
-
-  openMenu() {
-    this.showMenu = true;
   }
 
   detectElms() {
