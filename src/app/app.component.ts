@@ -37,7 +37,6 @@ export class AppComponent {
   }
 
   selectOption(value: { anchor: string, id: number}) {
-    console.log('recived')
     this.viewportScroller.scrollToAnchor(value.anchor);
     this.selected = value.id;
     this.recived = true;
