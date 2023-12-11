@@ -2,6 +2,8 @@ main {
   margin-top: 64px;
   height: calc(100% - 64px);
   padding:  var(--main-padding-size);
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 h1 {
@@ -12,8 +14,6 @@ h1 {
 
 section {
   display: flex;
-  justify-content: center;
-  text-align: center;
   flex-direction: column;
   padding-top: 65px;
 }
@@ -36,6 +36,8 @@ section {
   main {
     margin-top: 0 !important;
     height: 100vh !important;
+    margin-right: 1em !important;
+    margin-left: 1em !important;
   }
 
   .title_section {
@@ -47,6 +49,8 @@ section {
     padding-top: 2rem !important;
   }
 }
+
+
 
 .image_container {
   width: 100%;
