@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NAV_OPTIONS } from './../../constants/constants';
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { isMobile } from './../../../utils/view.utils';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +15,7 @@ export class NavComponent implements OnInit{
   public NAV_OPTIONS = NAV_OPTIONS;
   public mobile: any;
 
-  @Output() scrollToSection = new EventEmitter<String>();
+  @Output() scrollToSection = new EventEmitter<{ id: number, anchor: string }>();
   @Input() currentPosition:number = -1;
 
   constructor() {
@@ -43,6 +42,6 @@ export class NavComponent implements OnInit{
       this.showMenu = false;
     }
 
-    this.scrollToSection.emit(anchor);
+    this.scrollToSection.emit({ id, anchor });
   }
 }
