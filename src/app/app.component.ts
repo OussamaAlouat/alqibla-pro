@@ -1,12 +1,11 @@
 import { NavComponent } from './components/nav/nav.component';
 import { AboutComponent } from './views/about/about.component';
-
 import { isInViewport } from './../utils/view.utils';
 import { NAV_OPTIONS } from './constants/constants';
 import { Component, QueryList, Renderer2, ViewChildren, OnInit } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -19,6 +18,7 @@ export class AppComponent {
   public NAV_OPTIONS = NAV_OPTIONS;
   @ViewChildren('project, mission,vision, valores, asociacinismo, facciones, futuwa, actividades, local, economy') elms!: QueryList<any>;  
   public selected: number = -1;
+  private recived: boolean = false;
   title = 'alqibla-pro';
 
   exampletext = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc sapien, tristique et hendrerit dictum, faucibus sed nibh. Ut eleifend eu libero et venenatis. Phasellus tempus ligula non nisi finibus venenatis. Vestibulum leo nibh, lobortis vitae blandit et, venenatis id lorem. Maecenas libero elit, suscipit quis mi vitae, accumsan consectetur tellus. Suspendisse nec libero nulla. Sed ornare mauris id mi aliquet suscipit.
@@ -36,18 +36,29 @@ export class AppComponent {
     setTimeout(this.detectElms.bind(this))
   }
 
-  selectOption(anchor: any) {
-    this.viewportScroller.scrollToAnchor(anchor);
+  selectOption(value: { anchor: string, id: number}) {
+    console.log('recived')
+    this.viewportScroller.scrollToAnchor(value.anchor);
+    this.selected = value.id;
+    this.recived = true;
+
+    // Because when navigate by menu select not correct position
+    // we block the selection around 1 second
+    setTimeout(()=> {
+      this.recived = false;
+    }, 1000)
   }
 
   detectElms() {
-    this.elms.forEach((elm, index) => {
-      if (isInViewport(elm.nativeElement)) {
-        const finded = this.NAV_OPTIONS.find((el) => el.anchor  === elm.nativeElement.id);
-        if(finded) {
-          this.selected = finded.id;
+    if(!this.recived) {
+      this.elms.forEach((elm, index) => {
+        if (isInViewport(elm.nativeElement)) {
+          const finded = this.NAV_OPTIONS.find((el) => el.anchor  === elm.nativeElement.id);
+          if(finded) {
+            this.selected = finded.id;
+          }
         }
-      }
-    });
+      });
+    }
   }
 }
