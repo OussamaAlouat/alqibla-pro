@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://alqibla.es/sitemap.xml

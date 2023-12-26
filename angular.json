@@ -28,6 +28,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/sitemap.xml",
+              "src/robots.txt",
               {
                 "glob": "*.svg",
                 "input": "./node_modules/bootstrap-icons/",
