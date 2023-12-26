@@ -1,18 +1,29 @@
+import { Component, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
+
+import { ValuesComponent } from './views/values/values.component';
 import { VisionComponent } from './views/vision/vision.component';
 import { MissionComponent } from './views/mission/mission.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AboutComponent } from './views/about/about.component';
 import { isInViewport } from './../utils/view.utils';
 import { NAV_OPTIONS } from './constants/constants';
-import { Component, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent, AboutComponent, MissionComponent, VisionComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NavComponent,
+    AboutComponent,
+    MissionComponent,
+    VisionComponent,
+    ValuesComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
