@@ -20,33 +20,28 @@
     anchor: 'valores'
   },
   {
-    name: 'Asociacinismo',
-    id: 4,
-    anchor: 'asociacinismo'
-  },
-  {
     name: 'Facciones',
-    id: 5,
+    id: 4,
     anchor: 'facciones'
   },
   {
     name: 'Futuwa',
-    id: 6,
+    id: 5,
     anchor: 'futuwa'
   },
   {
     name: 'Actividades',
-    id: 7,
+    id: 6,
     anchor: 'actividades'
   },
   {
     name: 'Modelo de local',
-    id: 8,
+    id: 7,
     anchor: 'local'
   },
   {
     name: 'Colaboración económica',
-    id: 9,
+    id: 8,
     anchor: 'economy'
   }
 ];
