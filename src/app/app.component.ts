@@ -1,3 +1,4 @@
+import { MissionComponent } from './views/mission/mission.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AboutComponent } from './views/about/about.component';
 import { isInViewport } from './../utils/view.utils';
@@ -10,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent, AboutComponent],
+  imports: [CommonModule, RouterOutlet, NavComponent, AboutComponent, MissionComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
