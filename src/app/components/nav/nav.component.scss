@@ -1,3 +1,11 @@
+/**
+Reset css
+*/
+ul, ol {
+  list-style: none;
+}
+
+// Values
 .menu-container {
   display: flex;
   width: 100%;
