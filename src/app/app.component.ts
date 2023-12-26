@@ -7,7 +7,7 @@ import { NAV_OPTIONS } from './constants/constants';
 import { Component, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -29,13 +29,14 @@ export class AppComponent {
   Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam posuere metus eget finibus tempus. Mauris lacinia risus eget dui vulputate, vitae vehicula leo vestibulum. Nulla at luctus metus. Donec fringilla vestibulum tincidunt. Suspendisse viverra magna vitae euismod pellentesque. In at augue eget lectus auctor consequat at quis velit. Sed placerat nunc nec magna volutpat iaculis. Donec tincidunt leo eu pellentesque luctus. Mauris ante est, molestie mattis interdum sed, ullamcorper vel libero. Nullam at tempor lectus. Curabitur posuere, dolor non varius auctor, odio justo semper turpis, non dignissim nulla augue nec nisi. Praesent commodo consectetur faucibus. In vel arcu at nulla semper vulputate rutrum nec leo. Pellentesque tincidunt fringilla mauris, ac tristique nunc luctus nec.
   Suspendisse feugiat lobortis nulla, ut pharetra odio laoreet a. Nam in nulla leo. Vivamus id massa id neque sodales pellentesque. Suspendisse sed dolor maximus, dignissim lorem vel, aliquet nulla. Nulla consectetur purus condimentum, pharetra erat at, pulvinar libero. Mauris congue urna id euismod tristique. Sed posuere lectus at metus facilisis, tempor suscipit libero dictum. Integer nec dolor nisl. Curabitur sollicitudin augue eu augue tincidunt accumsan. Nulla iaculis sodales dictum.`
 
-  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) {
+  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller, private meta: Meta) {
     this.renderer.listen('window', 'resize', this.detectElms.bind(this));
     this.renderer.listen('window', 'scroll', this.detectElms.bind(this));
   }
 
   ngAfterViewInit () {
     setTimeout(this.detectElms.bind(this))
+    this.meta.addTag({ name: 'Alqibla', content: 'Sitio web para la asociación de alqibla' });
   }
 
   selectOption(value: { anchor: string, id: number}) {
