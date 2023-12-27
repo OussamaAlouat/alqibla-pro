@@ -1,3 +1,4 @@
+import { FutuwaComponent } from './views/futuwa/futuwa.component';
 import { Component, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -22,7 +23,8 @@ import { NAV_OPTIONS } from './constants/constants';
     AboutComponent,
     MissionComponent,
     VisionComponent,
-    ValuesComponent
+    ValuesComponent,
+    FutuwaComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
