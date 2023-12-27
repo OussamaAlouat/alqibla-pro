@@ -3,9 +3,45 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    width: 31%;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+
+    i {
+      font-size: xx-large;
+    }
+  }
+
+  @media screen and (width <= 450px) {
+    &__card {
+      width: 100%;
+    }
+  }
+
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__box > div {
+    margin: 6px;
+  }
 }
 
 h3 {
   margin-top: 1rem;
   text-align: center;
 }
+
